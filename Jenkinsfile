@@ -1,3 +1,4 @@
+CODE_CHANGES = getGitChanges()
 pipeline{
   agent any 
   stages{
@@ -7,6 +8,11 @@ pipeline{
         }
       }
     stage("test"){
+      when{
+        expresson{
+          BRANCH_NAME = 'development'
+        }
+      }
       steps{
         echo 'testing the application.....'
       }
