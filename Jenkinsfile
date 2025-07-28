@@ -1,26 +1,20 @@
-CODE_CHANGES = getGitChanges()
-pipeline{
-  agent any 
-  stages{
-    stage("build"){
-      steps{
-        echo 'building the application.....'
+pipeline {
+    agent any
+    stages {
+        stage("build") {
+            steps {
+                echo 'building the application...'
+            }
         }
-      }
-    stage("test"){
-      when{
-        expresson{
-          BRANCH_NAME = 'development'
+        stage("test") {
+            steps {
+                echo 'testing the application...'
+            }
         }
-      }
-      steps{
-        echo 'testing the application.....'
-      }
-    }
-    stage("deploy"){
-      steps{
-        echo 'deploying the application.....'
-      }
-    }
-  }
+        stage("deploy") {
+            steps {
+                echo 'deploying the application...'
+            }
+        }
+    }
 }
